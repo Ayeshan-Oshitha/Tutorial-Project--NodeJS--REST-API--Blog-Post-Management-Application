@@ -21,4 +21,12 @@ router.post(
 // GET /feed/GetPost
 router.get("/GetPost/:postId" , feedController.getPost);
 
+router.put('/UpdatePost/:postId',
+  [
+    body("title").trim().isLength({ min: 8 }),
+    body("content").trim().isLength({ min: 10 }),
+  ], 
+  feedController.updatePost
+)
+
 module.exports = router;
