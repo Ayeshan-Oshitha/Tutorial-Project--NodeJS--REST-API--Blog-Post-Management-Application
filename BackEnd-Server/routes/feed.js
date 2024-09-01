@@ -12,6 +12,7 @@ router.get("/GetPosts", isAuth,  feedController.getPosts);
 // POST /feed/CreatePost
 router.post(
   "/CreatePost",
+  isAuth,
   [
     body("title").trim().isLength({ min: 8 }),
     body("content").trim().isLength({ min: 10 }),
@@ -20,9 +21,9 @@ router.post(
 );
 
 // GET /feed/GetPost
-router.get("/GetPost/:postId" , feedController.getPost);
+router.get("/GetPost/:postId" , isAuth, feedController.getPost);
 
-router.put('/UpdatePost/:postId',
+router.put('/UpdatePost/:postId', isAuth,
   [
     body("title").trim().isLength({ min: 8 }),
     body("content").trim().isLength({ min: 10 }),
@@ -30,6 +31,6 @@ router.put('/UpdatePost/:postId',
   feedController.updatePost
 )
 
-router.delete('/DeletePost/:postId', feedController.deletePost)
+router.delete('/DeletePost/:postId',isAuth, feedController.deletePost)
 
 module.exports = router;
