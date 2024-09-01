@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const { required } = require('../../FrontEnd-Client/src/util/validators');
 const Schema = mongoose.Schema;
 
 const postSchema = new Schema({
@@ -15,8 +16,9 @@ const postSchema = new Schema({
         required : true
     },
     creator : {
-        type : Object,
-        required : true
+        type : Schema.Types.ObjectId,
+        ref : 'User',
+        required: true
     }
 }, {
     timestamps : true
