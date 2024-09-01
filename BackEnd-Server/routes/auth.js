@@ -6,7 +6,8 @@ const authController = require('../controller/auth');
 
 const router = express.Router();
 
-router.put('/signup' ,[
+// PUT /auth/SignUp
+router.put('/SignUp' ,[
     body('email')
     .isEmail()
     .withMessage('Please enter a valid email.')
