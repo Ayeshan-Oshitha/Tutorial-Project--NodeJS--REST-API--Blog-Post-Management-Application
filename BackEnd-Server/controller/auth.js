@@ -58,7 +58,7 @@ exports.login = (req, res, next) => {
             email: loadedUser.email,
             userId: loadedUser._id.toString(),
           },
-          "somesupersecrestcode",
+          "somesupersecretcode",
           {
             expiresIn: "1h",
           }
